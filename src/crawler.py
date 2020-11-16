@@ -19,9 +19,10 @@ class Crawler:
     CHROMEDRIVER_PATH = os.path.join(os.path.dirname(os.path.dirname(
         os.path.abspath(__file__))), "chromedriver")
     TIMEOUT = 10
+    NUM_SCROLL = 20
 
     @classmethod
-    def run(cls, mode="timeline"):
+    def run(cls, mode="timeline", is_migrate=False):
         df = cls.__get_database(mode)
 
         driver = cls.__init_webdriver()
@@ -40,6 +41,21 @@ class Crawler:
                     wait.until(EC.element_to_be_clickable(
                         (By.CLASS_NAME, "load-more")))
                     break
+
+            if is_migrate:
+                driver.execute_script(
+                    "window.scrollTo(0, document.body.scrollHeight);")
+                buttons = driver.find_elements_by_tag_name("button")
+                for button in buttons:
+                    if button.text == "もっと見る":
+                        button.click()
+                        wait.until(EC.presence_of_all_elements_located)
+                        break
+                for _ in range(cls.NUM_SCROLL):
+                    driver.execute_script(
+                        "window.scrollTo(0, document.body.scrollHeight);")
+                    time.sleep(1)
+                    wait.until(EC.presence_of_all_elements_located)
 
             card_links = driver.find_elements_by_class_name("card-link")
             card_dicts = []
@@ -81,7 +97,7 @@ class Crawler:
     @classmethod
     def __init_webdriver(cls):
         options = webdriver.ChromeOptions()
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
 
         driver = webdriver.Chrome(
             executable_path=cls.CHROMEDRIVER_PATH,

@@ -10,4 +10,7 @@ class ArgumentParser:
         argument_parser.add_argument(
             "-s", "--stock", action="store_true", help="crawl the stock page"
         )
+        argument_parser.add_argument(
+            "-m", "--migrate", action="store_true", help="migrate mode"
+        )
         self.arguments = argument_parser.parse_args()

@@ -10,10 +10,11 @@ def main():
     load_dotenv()
     argument_parser = ArgumentParser()
 
-    mode = "stock" if argument_parser.arguments.stock else "timeline"
-    news_list = Crawler.run(mode=mode)
+    mode = __select_mode(argument_parser.arguments)
+    news_list = Crawler.run(
+        mode=mode, is_migrate=argument_parser.arguments.migrate)
 
-    if len(news_list) > 0:
+    if len(news_list) > 0 and not argument_parser.arguments.migrate:
         slack_bot = SlackBot(
             os.environ["CHANNEL"], os.environ["TEST_CHANNEL"], os.environ["SLACK_API_TOKEN"])
         for news in news_list:
@@ -22,6 +23,13 @@ def main():
                 message,
                 is_test=argument_parser.arguments.test
             )
+
+
+def __select_mode(arguments):
+    if arguments.stock:
+        return "stock"
+    else:
+        return "timeline"
 
 
 if __name__ == "__main__":
