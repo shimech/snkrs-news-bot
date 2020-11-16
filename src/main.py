@@ -1,12 +1,14 @@
 import os
 from dotenv import load_dotenv
 from argument_parser import ArgumentParser
+from utils import Utils
 from crawler import Crawler
 from message import Message
 from slack_bot import SlackBot
 
 
 def main():
+    Utils.print_log("start bot")
     load_dotenv()
     argument_parser = ArgumentParser()
 
@@ -23,6 +25,8 @@ def main():
                 message,
                 is_test=argument_parser.arguments.test
             )
+
+    Utils.print_log("stop bot")
 
 
 def __select_mode(arguments):
