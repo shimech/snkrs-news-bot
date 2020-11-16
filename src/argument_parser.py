@@ -7,4 +7,7 @@ class ArgumentParser:
         argument_parser.add_argument(
             "-t", "--test", action="store_true", help="post a message to test channel"
         )
+        argument_parser.add_argument(
+            "-s", "--stock", action="store_true", help="crawl the stock page"
+        )
         self.arguments = argument_parser.parse_args()
