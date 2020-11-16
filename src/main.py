@@ -8,7 +8,6 @@ from slack_bot import SlackBot
 
 
 def main():
-
     load_dotenv()
     argument_parser = ArgumentParser()
 
