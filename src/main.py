@@ -8,11 +8,13 @@ from slack_bot import SlackBot
 
 
 def main():
-    Utils.print_log("start bot")
+
     load_dotenv()
     argument_parser = ArgumentParser()
 
     mode = __select_mode(argument_parser.arguments)
+    Utils.print_log("start bot (mode={})".format(mode))
+
     news_list = Crawler.run(
         mode=mode, is_migrate=argument_parser.arguments.migrate)
 
@@ -26,7 +28,7 @@ def main():
                 is_test=argument_parser.arguments.test
             )
 
-    Utils.print_log("stop bot")
+    Utils.print_log("stop bot (mode={})".format(mode))
 
 
 def __select_mode(arguments):

@@ -64,6 +64,7 @@ class Crawler:
                     "name": card_link.get_attribute("aria-label"),
                     "url": card_link.get_attribute("href")
                 })
+            print("{} cards were detected.".format(len(card_dicts)))
 
             driver.quit()
 
