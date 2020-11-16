@@ -1,12 +1,12 @@
 # SNKRS News Bot
 
-# Dependencies
+## Dependencies
 
 - macOS Big Sur 11.0.1
 - Python 3.9.0
 - poetry 1.1.4
 
-# Commands
+## Commands
 
 Post message to a test channel
 
@@ -14,6 +14,6 @@ Post message to a test channel
 sh ./bin/test.sh
 ```
 
-# Reference
+## Reference
 
 - [SNKRS Web Site](https://www.nike.com/jp/launch)
