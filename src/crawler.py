@@ -25,6 +25,9 @@ class Crawler:
     def run(cls, mode="timeline", is_migrate=False):
         df = cls.__get_database(mode)
 
+        if mode == "stock":
+            time.sleep(30)
+
         driver = cls.__init_webdriver()
         wait = WebDriverWait(driver, cls.TIMEOUT)
 
