@@ -34,15 +34,13 @@ class Crawler:
         try:
             init_url = cls.UPCOMING_URL
             driver.get(init_url)
-            wait.until(EC.element_to_be_clickable(
-                (By.CLASS_NAME, "nav-items")))
+            time.sleep(1)
 
             nav_items = driver.find_elements_by_class_name("nav-items")
             for nav_item in nav_items:
                 if nav_item.text == cls.__select_target_tab(mode):
                     nav_item.click()
-                    wait.until(EC.element_to_be_clickable(
-                        (By.CLASS_NAME, "load-more")))
+                    time.sleep(1)
                     break
 
             if is_migrate:
