@@ -84,7 +84,7 @@ class Crawler:
         except TimeoutException as e:
             print("TIMEOUT")
             driver.quit()
-            return
+            return []
 
     @classmethod
     def __select_database_path(cls, mode):
