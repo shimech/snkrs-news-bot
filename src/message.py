@@ -9,7 +9,7 @@ class Message:
     normal_news_message += "の新規情報が投稿されました。:snkrs:" + "\n"
     normal_news_message += "{}" + "\n"
 
-    restock_message = "<!channel> 【Restock!!】" + "\n"
+    restock_message = "【Restock!!】" + "\n"
     restock_message += "{}" + "\n"
     restock_message += "がリストックされました！" + "\n"
     restock_message += "{}" + "\n"
