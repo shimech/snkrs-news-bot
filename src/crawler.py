@@ -1,4 +1,5 @@
 import os
+import gc
 import time
 from dotenv import load_dotenv
 import pandas as pd
@@ -68,6 +69,8 @@ class Crawler:
             print("{} cards were detected.".format(len(card_dicts)))
 
             driver.quit()
+            del driver
+            gc.collect()
 
             news_list = []
             for card_dict in card_dicts:
@@ -84,6 +87,8 @@ class Crawler:
         except TimeoutException as e:
             print("TIMEOUT")
             driver.quit()
+            del driver
+            gc.collect()
             return []
 
     @classmethod
