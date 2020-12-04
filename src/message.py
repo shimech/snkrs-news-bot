@@ -4,7 +4,7 @@ class Message:
     snkrs_pass_message += "のSNKRS PASSが発行されました！急げ！！:snkrspass:" + "\n"
     snkrs_pass_message += "{}" + "\n"
 
-    normal_news_message = "<!channel> 【New Post】" + "\n"
+    normal_news_message = "【New Post】" + "\n"
     normal_news_message += "{}" + "\n"
     normal_news_message += "の新規情報が投稿されました。:snkrs:" + "\n"
     normal_news_message += "{}" + "\n"
