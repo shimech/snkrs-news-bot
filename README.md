@@ -1,7 +1,20 @@
 # SNKRS News Bot
 
-# Dependencies
+## Dependencies
 
 - macOS Big Sur 11.0.1
 - Python 3.9.0
 - poetry 1.1.4
+- ChromeDriver 86.0.4240.22
+
+## Commands
+
+Post message to a test channel
+
+```
+sh ./bin/test.sh
+```
+
+## Reference
+
+- [SNKRS Web Site](https://www.nike.com/jp/launch)
