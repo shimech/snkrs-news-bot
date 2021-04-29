@@ -26,7 +26,7 @@ After unzip it, place it in the root of this repository.
 Input a command following below:
 
 ```
-mv .env.sample .env
+cp .env.sample .env
 ```
 
 After that, write your `SLACK_API_TOKEN`, `CHANNEL` (name of your slack channel), and `TEST_CHANNEL` (name of your slack channel for debug)
