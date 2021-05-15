@@ -3,15 +3,15 @@ from utils import Utils
 
 
 class SlackBot:
-    def __init__(self, channel, test_channel, slack_api_token):
+    def __init__(self, channel, debug_channel, slack_api_token):
         self.slacker = Slacker(slack_api_token)
         self.channel = channel
-        self.test_channel = test_channel
+        self.debug_channel = debug_channel
 
-    def post_message(self, message, is_test=False):
-        channel = self.test_channel if is_test else self.channel
+    def post_message(self, message, is_debug=False):
+        channel = self.debug_channel if is_debug else self.channel
         try:
             self.slacker.chat.post_message(channel, message)
-            Utils.print_log("post message to {}".format(channel))
+            return True, "post message to {}".format(channel)
         except:
-            Utils.print_log("FAIL to post message to {}".format(channel))
+            return False, "FAIL to post message to {}".format(channel)
