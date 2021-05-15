@@ -11,7 +11,7 @@
 
 ### 1. Clone this repository
 
-```
+```sh
 git clone https://github.com/shimech/snkrs-news-bot.git
 cd snkrs-news-bot/
 ```
@@ -25,7 +25,7 @@ After unzip it, place it in the root of this repository.
 
 Input a command following below:
 
-```
+```sh
 cp .env.sample .env
 ```
 
@@ -33,7 +33,7 @@ After that, write your `SLACK_API_TOKEN`, `CHANNEL` (name of your slack channel)
 
 ### 4. Install packages and run by debug-mode
 
-```
+```sh
 make install
 make debug-run
 ```
@@ -41,7 +41,7 @@ make debug-run
 This bot will be expected to post some messages to your test channel.  
 You can post messages to your main channel by run a command following below:
 
-```
+```sh
 make run
 ```
 
